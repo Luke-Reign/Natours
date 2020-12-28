@@ -58,6 +58,8 @@ body {
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
+
+    backface-visibility: hidden; /*Fixes the little shaking that happens in the animation*/
 }
 
 .heading-primary-main {
@@ -65,6 +67,15 @@ body {
     font-weight: 400;
     font-size: 60px;
     letter-spacing: 35px;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    
+    
+    /*
+    animation-delay: 3s; /*Animation doesn't start until the specified time
+    animation-iteration-count:3; /*Animation happens 3 times
+    animation-timing-function: ease-out; /*Defines how animation will preceed- how fast or slow*/
 }
 
 .heading-primary-sub {
@@ -72,4 +83,38 @@ body {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.3px;
+
+    animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+    0% { /*When animation starts*/
+        opacity: 0; /*Makes it invisible at the beginning of animation*/
+        transform: translateX(-100px); /*Moves text from left to right*/
+    }
+
+    80% {
+        transform: translateX(10px); /*Move text to the right side at 80%*/
+    }
+
+    100% { /*When animation finishes*/
+        opacity: 1; /*Returns the default text*/
+        transform: translate(0); /*Positions the text where it was initially*/
+    }
+}
+
+@keyframes moveInRight {
+    0% { /*When animation starts*/
+        opacity: 0; /*Makes it invisible at the beginning of animation*/
+        transform: translateX(100px); /*Moves text from right to left*/
+    }
+
+    80% {
+        transform: translateX(-10px); /*Moves text to the left side at 80%*/
+    }
+
+    100% { /*When animation finishes*/
+        opacity: 1; /*Returns the default text*/
+        transform: translate(0); /*Positions the text where it was initially*/
+    }
 }
