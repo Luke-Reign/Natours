@@ -46,17 +46,17 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /*Clips the element to the desired shape*/
 }
 
-.logo-box {
+.header__logo-box {
     position: absolute;
     top: 4rem;
     left: 4rem;
 }
 
-.logo {
+.header__logo {
     height: 3.5rem;
 }
 
-.text-box {
+.header__text-box {
     position: absolute;
     top: 40%;
     left: 50%;
@@ -72,7 +72,7 @@ body {
     margin-bottom: 6rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
     display: block;    /*Displays inline text as block(Line breaks) - different lines*/
     font-weight: 400;
     font-size: 6rem;
@@ -88,7 +88,7 @@ body {
     animation-timing-function: ease-out; /*Defines how animation will preceed- how fast or slow*/
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
     font-size: 2rem;
     font-weight: 700;
@@ -163,7 +163,7 @@ body {
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
 }
 
-.btn-white {
+.btn--white {
     background-color: #fff;
     color: #777;
 }
@@ -181,7 +181,7 @@ body {
     transition: all .4s; /*Defines animation*/
 }
 
-.btn-white::after {
+.btn--white::after {
     background-color: #fff;
 }
 
@@ -190,7 +190,7 @@ body {
     opacity: 0; /*Makes it somehow invisible- FADE OUT*/
 }
 
-.btn-animated {
+.btn--animated {
     animation: moveInBottom .5s ease-out .75s; /*animation: name duration timing-fn delay*/
     animation-fill-mode: backwards; /*Automatically applies the styles upto 0% b4 the animation starts- makes the btn start as invisible*/
 }
