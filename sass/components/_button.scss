@@ -1,0 +1,56 @@
+.btn {
+    &:link,
+    &:visited { /*link and visited are pseudo classes-special states of a selector. We use them to style elements under special conditions*/
+        text-transform: uppercase;
+        text-decoration: none; /*Removes the color of link and underline*/
+        padding: 1.5rem 4rem;
+        display: inline-block; /*This makes the padding functional*/
+        border-radius: 10rem;
+        transition: all .2s; /*We use this for animations, we set it here but the animation will happen in the hover and active below*/
+        position: relative;
+        font-size: 1.6rem;
+    } /*We want the visited state to look the same as the normal state of the link*/
+
+    &:hover { /*hover is another pseudo class. We use it to select a different and special state of the button element*/
+        transform: translateY(-3px); /*Moves up*/
+        box-shadow: 0 1rem 2rem rgba($color-black,.2); /*box-shadow: x y blur color*/
+        
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:active { /*Happens when we click*/
+        transform: translateY(-1px); /*-1px in relation to the link state*/
+        box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+    }
+
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        &::after {
+            background-color: $color-white;
+        }
+    }
+
+    &::after { /*After pseudo element adds like a virtual element right after the element we're selecting and we can then style that element*/
+        content: "";/*Important, has to be there*/
+        display: inline-block;/*Important, has to be there*/
+        height: 100%;/*Child of the button*/
+        width: 100%;/*100% of the button*/
+        border-radius: 10rem;
+        position: absolute; /*Puts it behind actual btn. NB Relative has to be there for the btn*/
+        top: 0;
+        left: 0;
+        z-index: -1;/*Defines position of elements if they're one on top of the other*/
+        transition: all .4s; /*Defines animation*/
+    }
+
+
+    &--animated {
+        animation: moveInBottom .5s ease-out .75s; /*animation: name duration timing-fn delay*/
+        animation-fill-mode: backwards; /*Automatically applies the styles upto 0% b4 the animation starts- makes the btn start as invisible*/
+    }
+}
